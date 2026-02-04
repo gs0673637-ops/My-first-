@@ -2,101 +2,95 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Be My Valentine</title>
+<title>Debojani ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff4d6d, #ff758f);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #ffe6eb;
+    font-family: Arial, sans-serif;
     margin: 0;
-    color: white;
-    text-align: center;
 }
 
-.card {
-    background: rgba(0,0,0,0.2);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+.box {
+    text-align: center;
+    background: white;
     padding: 30px;
-    border-radius: 20px;
-    max-width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 16px;
-    margin-bottom: 25px;
+    color: #e6005c;
 }
 
 button {
-    font-size: 16px;
     padding: 10px 20px;
+    font-size: 18px;
+    margin: 15px;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px;
     cursor: pointer;
-    margin: 10px;
 }
 
 #yes {
-    background: #2ecc71;
+    background-color: #ff4d79;
     color: white;
 }
 
 #no {
-    background: #e74c3c;
+    background-color: #999;
     color: white;
     position: absolute;
+}
+
+#gif {
+    display: none;
+    margin-top: 20px;
+}
+
+img {
+    width: 250px;
+    border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-    <h1>Hey Love ❤️</h1>
-    <p>
-        From my heart to this screen... <br>
-        Will you be my Valentine?
-    </p>
-    <button id="yes" onclick="sayYes()">Yes</button>
-    <button id="no" onmouseover="moveNo()">No</button>
+<div class="box">
+    <h1>Debojani ❤️</h1>
+    <h2>Will you be my Valentine? 💕</h2>
+
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 😜</button>
+
+    <div id="gif">
+        <h2>You had no choice 😂💖</h2>
+        <img src="https://media.giphy.com/media/I0MYt5jPR6QX5pngM/giphy.gif" alt="Love Gif">
+    </div>
 </div>
 
 <script>
-function sayYes() {
-    document.body.innerHTML = `
-    <div style="
-        height:100vh;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        background:linear-gradient(135deg, #ff4d6d, #ff758f);
-        color:white;
-        font-family:Arial;
-        text-align:center;">
-        <h1>YAYYYYY 💖</h1>
-        <p>You just made me the happiest person alive 🥺❤️</p>
-    </div>
-    `;
-}
+const noButton = document.getElementById("no");
+const yesButton = document.getElementById("yes");
+const gifDiv = document.getElementById("gif");
 
-function moveNo() {
-    const button = document.getElementById("no");
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    button.style.left = x + "px";
-    button.style.top = y + "px";
-}
+noButton.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+});
+
+yesButton.addEventListener("click", () => {
+    gifDiv.style.display = "block";
+});
 </script>
 
 </body>
-                                          </html>
+</html>
